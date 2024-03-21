@@ -1,27 +1,20 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', function () {
-    return "Respon ini diterima dari path / dengan metode GET";
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/books', function () {
-    return "Router ini nantinya akan digunakan untuk mengambil semua data buku";
-});
-
-Route::post('/books', function () {
-    return "Router ini nantinya akan digunakan untuk mencipatakan data buku yang baru";
-});
-
-Route::put('/books', function () {
-    return "Router ini nantinya akan digunakan untuk mengubah data buku";
-});
-
-Route::delete('/books', function () {
-    return "Router ini nnantinya digunakan untuk menghapus data buku";
-});
+require __DIR__.'/auth.php';
