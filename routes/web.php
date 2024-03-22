@@ -18,11 +18,11 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('halo', function () {
-    return "Haloo, Wahyu sedang belajar Laravel";
+    return "Haloo, Wahyu sedang belajar Laravel"; // Mengembalikan String
 });
 
 Route::get('blog', function () {
-    return view('blog');
+    return view('blog'); // Mengambalikan view berupa file HTML
 });
 
 require __DIR__ . '/auth.php';
