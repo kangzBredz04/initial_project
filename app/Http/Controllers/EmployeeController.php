@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-final class EmployeeController extends Controller
+class EmployeeController extends Controller
 {
-
+    public function index()
+    {
+        return "Ini adalah method index yang ada di dalam EmpolyeeController";
+    }
 }

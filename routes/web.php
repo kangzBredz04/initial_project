@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,5 +25,7 @@ Route::get('halo', function () {
 Route::get('blog', function () {
     return view('blog'); // Mengambalikan view berupa file HTML
 });
+
+Route::get('employee', [EmployeeController::class, 'index']);
 
 require __DIR__ . '/auth.php';
