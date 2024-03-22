@@ -26,6 +26,6 @@ Route::get('blog', function () {
     return view('blog'); // Mengambalikan view berupa file HTML
 });
 
-Route::get('employee', [EmployeeController::class, 'index']);
+Route::get('employee', [EmployeeController::class, 'index']); // Memanggil function index yang berada di EmpolyeeController
 
 require __DIR__ . '/auth.php';
